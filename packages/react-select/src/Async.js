@@ -168,6 +168,7 @@ export const makeAsyncSelect = <C: {}>(
       return inputValue;
     };
     render() {
+      console.log('PROPS: ', props);
       const { loadOptions, isLoading: isLoadingProp, ...props } = this.props;
       const {
         defaultOptions,
