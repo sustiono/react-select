@@ -158,6 +158,8 @@ export const makeAsyncSelect = <C: {}>(
       return inputValue;
     };
     render() {
+      console.log('PROPS: ', this.props)
+      debugger
       const { loadOptions, ...props } = this.props;
       const {
         defaultOptions,
