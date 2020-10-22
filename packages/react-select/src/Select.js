@@ -253,7 +253,7 @@ export const defaultProps = {
   captureMenuScroll: !isTouchCapable(),
   closeMenuOnSelect: true,
   closeMenuOnScroll: false,
-  closeMenuOnBlur: false,
+  closeMenuOnBlur: true,
   components: {},
   controlShouldRenderValue: true,
   escapeClearsValue: false,
@@ -1128,10 +1128,8 @@ export default class Select extends Component<Props, State> {
     this.openAfterFocus = false;
   };
   onInputBlur = (event: SyntheticFocusEvent<HTMLInputElement>) => {
-    if (this.props.closeMenuOnBlur) {
-      return
-    }
-    if (this.menuListRef && this.menuListRef.contains(document.activeElement)) {
+    console.log('this.props.closeMenuOnBlur: ', this.props.closeMenuOnBlur);
+    if ((this.menuListRef && this.menuListRef.contains(document.activeElement)) || !this.props.closeMenuOnBlur) {
       this.inputRef.focus();
       return;
     }
